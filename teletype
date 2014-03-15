@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PAUSES=( "01" "02" "03" "04" )
+
+for (( i=0; i<=${#1}; i++ )); do
+	PAUSE=${PAUSES[$RANDOM % ${#PAUSES[@]} ]}
+	echo -n -e "\r\033[K${1:0:$i}"
+	sleep "0.$PAUSE"
+done
+echo ""
